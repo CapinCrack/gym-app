@@ -14,7 +14,7 @@ experience = st.sidebar.selectbox(
     ["Beginner", "Intermediate", "Advanced"]
 )
 
-tab1, tab2, tab3, tab4 = st.tabs(["Log Lift", "Your Lifts", "Compare", "Stats"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Log Lift", "Your Lifts", "Compare", "Stats", "Goals"])
 
 # ----------- Log lifts ----------
 with tab1:
@@ -77,4 +77,7 @@ with tab3:
 with tab4:
     st.header("My Stats")
     st.write("Coming soon!")
-
+# ------------- Goals -------------
+with tab5:
+    st.header("My Goals")
+    st.write("Hi TYNA!!!")
