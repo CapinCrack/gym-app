@@ -88,6 +88,6 @@ with tab4:
     st.header("Stats")
     st.write("Coming Soon")
 # ----------- Goals ----------
-with tab4:
+with tab5:
     st.header("My Goals")
     st.write("Coming Soon")
