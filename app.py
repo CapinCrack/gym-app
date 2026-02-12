@@ -15,7 +15,7 @@ else:
 st.set_page_config(
     page_title="Gym Stats",
     page_icon="💪",
-    layout="wide"
+    layout="centered"
 )
 
 st.title("💪 Gym Stats MVP")
