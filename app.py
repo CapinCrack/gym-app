@@ -97,7 +97,7 @@ with tab2:
 
 # ----------- Compare (all users) ----------
 =======
-'''
+"""
 for _, row in df.iterrows():
     st.markdown(f"""
     ### {row['Username']}
@@ -106,7 +106,7 @@ for _, row in df.iterrows():
     emoji{row.get('Percentile', '-')}%
     """)
     st.divider()
-'''
+"""
 # ----------- Compare ----------
 >>>>>>> ae71ab0 (UI tweak)
 with tab3:
