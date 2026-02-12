@@ -31,73 +31,39 @@ experience = st.sidebar.selectbox(
 )
 
 # ----------- Tabs ----------
-#tab1, tab2, tab3 = st.tabs(["Log Lift", "Your Lifts", "Compare"])
-
-col1, col2 = st.columns(2)
+col1, col2, col3, col4, col5, col6 = st.columns(6)
 
 with col1:
-    exercise = st.selectbox(
-        "Exercise", ["Bench Press", "Squat", "Deadlift", "Overhead Press"]
-    )
+    username = st.text_input("Username")
 
 with col2:
-    weight = st.number_input("Weight (kg)", min_value=1, max_value=500, value=50)
+    age = st.number_input("Age", min_value=12, max_value=100, value=20)
 
+with col3:
+    height = st.number_input("Height (cm)", min_value=100, max_value=250, value=170)
 
-# ----------- Log lifts ----------
-"""
-with tab1:
-    st.header("Log a Lift")
+with col4:
     exercise = st.selectbox(
         "Exercise",
         ["Bench Press", "Squat", "Deadlift", "Overhead Press"]
     )
+
+with col5:
     weight = st.number_input("Weight (kg)", min_value=1, max_value=500, value=50)
+
+with col6:
     reps = st.number_input("Reps", min_value=1, max_value=20, value=5)
 
-    if st.button("Add Lift"):
-        if not username:
-            st.warning("Please enter your username first!")
-        else:
-            new_lift = {
-                "Username": username,
-                "Age": age,
-                "Height": height,
-                "Experience": experience,
-                "Exercise": exercise,
-                "Weight": weight,
-                "Reps": reps
-            }
-            df_lifts = pd.concat([df_lifts, pd.DataFrame([new_lift])], ignore_index=True)
-            df_lifts.to_csv(DATA_FILE, index=False)
-            st.success(f"Added {reps} reps of {weight}kg {exercise}")
-
-# ----------- Show logged lifts (your lifts only) ----------
-with tab2:
-    st.header("Your Logged Lifts")
-    if username and not df_lifts[df_lifts["Username"] == username].empty:
-        st.dataframe(df_lifts[df_lifts["Username"] == username])
-    else:
-        st.info("No lifts logged yet")
-
-# ----------- Compare (all users) ----------
-with tab3:
-    st.header("Compare With Others")
-    if not df_lifts.empty:
-        df = df_lifts.copy()
-
-        # Calculate simple percentile
-        def percentile(weight, exercise):
-            max_weights = {
-                "Bench Press": 200,
-                "Squat": 250,
-                "Deadlift": 300,
-                "Overhead Press": 150
-            }
-            return round((weight / max_weights.get(exercise, 1)) * 100, 1)
-
-        df["Percentile"] = df.apply(lambda row: percentile(row["Weight"], row["Exercise"]), axis=1)
-        st.dataframe(df[["Username", "Exercise", "Weight", "Reps", "Percentile"]])
-    else:
-        st.info("No lifts logged yet")
-"""
+if st.button("Add Lift"):
+    if "lifts" not in st.session_state:
+        st.session_state.lifts = []
+    
+    st.session_state.lifts.append({
+        "Username": username,
+        "Age": age,
+        "Height": height,
+        "Exercise": exercise,
+        "Weight": weight,
+        "Reps": reps
+    })
+    st.success(f"Added {reps} reps of {weight}kg {exercise} for {username}")
