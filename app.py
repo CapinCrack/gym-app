@@ -18,7 +18,7 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("💪 Gym Stats MVP")
+st.title(" Stats 💪 hi tyna")
 
 # ----------- Sidebar ----------
 st.sidebar.header("Your Profile")
