@@ -1,4 +1,3 @@
-import streamlit as st
 import pandas as pd
 import os
 
@@ -13,7 +12,14 @@ else:
 
 # ----------- Page setup ----------
 st.set_page_config(page_title="Gym Stats MVP", layout="wide")
+
 st.title("💪 Gym Stats MVP")
+
+# ----------- Best Lifts -----------
+'''
+st.metric("Best Bench",
+df[df["Exercise"]=="Bench Press"]
+["Weight"].max())   
 
 # ----------- Sidebar ----------
 st.sidebar.header("Your Profile")
@@ -31,6 +37,11 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Log Lift", "Your Lifts", "Compare", "St
 # ----------- Log lifts ----------
 with tab1:
     st.header("Log a Lift")
+<<<<<<< HEAD
+=======
+# st.markdown('## Log your lift')
+# st.divider()
+>>>>>>> ae71ab0 (UI tweak)
     exercise = st.selectbox(
         "Exercise",
         ["Bench Press", "Squat", "Deadlift", "Overhead Press"]
@@ -55,15 +66,49 @@ with tab1:
             df_lifts.to_csv(DATA_FILE, index=False)
             st.success(f"Added {reps} reps of {weight}kg {exercise}")
 
+<<<<<<< HEAD
 # ----------- Show logged lifts (your lifts only) ----------
+=======
+        st.session_state.lifts.append({
+            "Username": username,
+            "Exercise": exercise,
+            "Weight": weight,
+            "Reps": reps
+        })
+
+        st.success(f"Added {reps} reps of {weight}kg {exercise}")
+"""
+col1, col2 = st.columns(2)
+
+with col 1:
+    exercise = st.selectbox("Exercise",[...])
+with col2:
+    weight = st.number_input("Weight (kg)",...)
+"""
+# ----------- Show logged lifts ----------
+>>>>>>> ae71ab0 (UI tweak)
 with tab2:
     st.header("Your Logged Lifts")
     if username and not df_lifts[df_lifts["Username"] == username].empty:
         st.dataframe(df_lifts[df_lifts["Username"] == username])
     else:
         st.info("No lifts logged yet")
+<<<<<<< HEAD
 
 # ----------- Compare (all users) ----------
+=======
+'''
+for _, row in df.iterrows():
+    st.markdown(f"""
+    ### {row['Username']}
+    emoji{row['Exercise']}
+    emoji{row['Weight']}kg x {row['Reps']}
+    emoji{row.get('Percentile', '-')}%
+    """)
+    st.divider()
+'''
+# ----------- Compare ----------
+>>>>>>> ae71ab0 (UI tweak)
 with tab3:
     st.header("Compare With Others")
     if not df_lifts.empty:
