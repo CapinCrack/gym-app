@@ -32,13 +32,17 @@ experience = st.sidebar.selectbox(
 
 # ----------- Tabs ----------
 #tab1, tab2, tab3 = st.tabs(["Log Lift", "Your Lifts", "Compare"])
+
 col1, col2 = st.columns(2)
 
 with col1:
-    exercise = st.selectbox("Exercise", [...])
+    exercise = st.selectbox(
+        "Exercise", ["Bench Press", "Squat", "Deadlift", "Overhead Press"]
+    )
 
 with col2:
-    weight = st.number_input("Weight (kg)", [...])
+    weight = st.number_input("Weight (kg)", min_value=1, max_value=500, value=50)
+
 
 # ----------- Log lifts ----------
 """
