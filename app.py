@@ -16,7 +16,6 @@ st.set_page_config(page_title="Gym Stats MVP", layout="wide")
 st.title("💪 Gym Stats MVP")
 
 # ----------- Best Lifts -----------
-'''
 st.metric("Best Bench",
 df[df["Exercise"]=="Bench Press"]
 ["Weight"].max())   
