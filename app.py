@@ -12,7 +12,12 @@ else:
     df_lifts = pd.DataFrame(columns=["Username", "Age", "Height", "Experience", "Exercise", "Weight", "Reps"])
 
 # ----------- Page setup ----------
-st.set_page_config(page_title="Gym Stats MVP", layout="wide")
+st.set_page_config(
+    page_title="Gym Stats",
+    page_icon="💪",
+    layout="wide"
+)
+
 st.title("💪 Gym Stats MVP")
 
 # ----------- Sidebar ----------
