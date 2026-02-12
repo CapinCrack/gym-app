@@ -31,9 +31,17 @@ experience = st.sidebar.selectbox(
 )
 
 # ----------- Tabs ----------
-tab1, tab2, tab3 = st.tabs(["Log Lift", "Your Lifts", "Compare"])
+#tab1, tab2, tab3 = st.tabs(["Log Lift", "Your Lifts", "Compare"])
+col1, col2 = st.columns(2)
+
+with col1:
+    exercise = st.selectbox("Exercise", [...])
+
+with col2:
+    weight = st.number_input("Weight (kg)", ...)
 
 # ----------- Log lifts ----------
+"""
 with tab1:
     st.header("Log a Lift")
     exercise = st.selectbox(
@@ -88,3 +96,4 @@ with tab3:
         st.dataframe(df[["Username", "Exercise", "Weight", "Reps", "Percentile"]])
     else:
         st.info("No lifts logged yet")
+"""
