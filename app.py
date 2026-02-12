@@ -18,7 +18,7 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title(" Stats 💪 hi tyna")
+st.title(" Stats 💪 Gym Stats MVP")
 
 # ----------- Sidebar ----------
 st.sidebar.header("Your Profile")
@@ -31,7 +31,7 @@ experience = st.sidebar.selectbox(
 )
 
 # ----------- Tabs ----------
-col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+col1, col2, col3, col4, col5, col6 = st.columns(6)
 
 with col1:
     username = st.text_input("Username")
@@ -54,8 +54,6 @@ with col5:
 with col6:
     reps = st.number_input("Reps", min_value=1, max_value=20, value=5)
 
-with col7:
-    hityna = st.number_input("HALLO",min_value=1, max_value=10, value=50)
 if st.button("Add Lift"):
     if "lifts" not in st.session_state:
         st.session_state.lifts = []
