@@ -38,7 +38,7 @@ with col1:
     exercise = st.selectbox("Exercise", [...])
 
 with col2:
-    weight = st.number_input("Weight (kg)", ...)
+    weight = st.number_input("Weight (kg)", [...])
 
 # ----------- Log lifts ----------
 """
